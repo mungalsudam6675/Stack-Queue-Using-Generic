@@ -5,7 +5,7 @@ import org.junit.Test;
 
 public class MyStackTest {
 	@Test
-	public void given3NumbersWhenAddedToStackShouldHaveLastAddedNode() {
+	public void given3NumbersInStackWhenPopedShoulMatchWithLastAddedNode() {
 		MyStack myStack = new MyStack();
 		MyNode<Integer>myFirstNode  = new MyNode<>(70);
 		MyNode<Integer>mySecondNode  = new MyNode<>(30);
@@ -13,8 +13,9 @@ public class MyStackTest {
 		myStack.push(myFirstNode);
 		myStack.push(mySecondNode);
 		myStack.push(myThirdNode);
+		INode<Integer> popedNode = myStack.pop();
 		myStack.printStack();
-		INode peak = myStack.peak();
-		Assert.assertEquals(myThirdNode, peak);
+
+		Assert.assertEquals(myThirdNode, popedNode);
 	}
 }
